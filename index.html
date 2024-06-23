@@ -28,20 +28,20 @@
             font-size: 1.5em;
             margin-bottom: 10px;
         }
-        .player-stats {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .player-card {
-            background-color: #3b3f46;
-            padding: 10px;
-            margin: 5px;
+        .player-stats table {
             width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #3b3f46;
             border-radius: 5px;
+            overflow: hidden;
         }
-        .player-card span {
-            display: block;
+        .player-stats th, .player-stats td {
+            padding: 10px;
+            border: 1px solid #ffffff;
+        }
+        .player-stats th {
+            background-color: #20232a;
         }
     </style>
 </head>
@@ -53,55 +53,106 @@
         <section class="stats-section">
             <h2>Zero Build Stats</h2>
             <div class="player-stats" id="zero-build-stats">
-                <!-- Player stats will be added here -->
-                <div class="player-card">
-                    <span>Player Name: Shawn</span>
-                    <span>Score: 859776</span>
-                    <span>Score Per Min: 26.307</span>
-                    <span>Score Per Match: 301.253</span>
-                    <span>Wins: 230</span>
-                    <span>Top 3: 339</span>
-                    <span>Top 5: 370</span>
-                    <span>Top 6: 531</span>
-                    <span>Top 10: 86</span>
-                    <span>Top 12: 634</span>
-                    <span>Top 25: 144</span>
-                    <span>Kills: 7683</span>
-                    <span>Kills Per Min: 0.235</span>
-                    <span>Kills Per Match: 2.692</span>
-                    <span>Deaths: 2624</span>
-                    <span>K/D: 2.928</span>
-                    <span>Matches: 2854</span>
-                    <span>Win Rate: 8.059%</span>
-                    <span>Minutes Played: 32682</span>
-                    <span>Players Outlived: 182489</span>
-                    <span>Last Modified: 2024-06-16T19:49:23Z</span>
-                </div>
-                <!-- Add more player stats below -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Score</th>
+                            <th>Score Per Min</th>
+                            <th>Score Per Match</th>
+                            <th>Wins</th>
+                            <th>Top 3</th>
+                            <th>Top 5</th>
+                            <th>Top 6</th>
+                            <th>Top 10</th>
+                            <th>Top 12</th>
+                            <th>Top 25</th>
+                            <th>Kills</th>
+                            <th>Kills Per Min</th>
+                            <th>Kills Per Match</th>
+                            <th>Deaths</th>
+                            <th>K/D</th>
+                            <th>Matches</th>
+                            <th>Win Rate</th>
+                            <th>Minutes Played</th>
+                            <th>Players Outlived</th>
+                            <th>Last Modified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Player stats will be added here -->
+                        <tr>
+                            <td>JohnDoe</td>
+                            <td>859776</td>
+                            <td>26.307</td>
+                            <td>301.253</td>
+                            <td>230</td>
+                            <td>339</td>
+                            <td>370</td>
+                            <td>531</td>
+                            <td>86</td>
+                            <td>634</td>
+                            <td>144</td>
+                            <td>7683</td>
+                            <td>0.235</td>
+                            <td>2.692</td>
+                            <td>2624</td>
+                            <td>2.928</td>
+                            <td>2854</td>
+                            <td>8.059%</td>
+                            <td>32682</td>
+                            <td>182489</td>
+                            <td>2024-06-16T19:49:23Z</td>
+                        </tr>
+                        <!-- Add more player stats below -->
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="stats-section">
             <h2>Rocket Racing Stats</h2>
             <div class="player-stats" id="rocket-racing-stats">
-                <!-- Player stats will be added here -->
-                <div class="player-card">
-                    <span>Player Name: JaneDoe</span>
-                    <span>Races: 30</span>
-                    <span>Wins: 10</span>
-                </div>
-                <!-- Add more player stats below -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Races</th>
+                            <th>Wins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Player stats will be added here -->
+                        <tr>
+                            <td>JaneDoe</td>
+                            <td>30</td>
+                            <td>10</td>
+                        </tr>
+                        <!-- Add more player stats below -->
+                    </tbody>
+                </table>
             </div>
         </section>
         <section class="stats-section">
             <h2>Level Stats</h2>
             <div class="player-stats" id="level-stats">
-                <!-- Player stats will be added here -->
-                <div class="player-card">
-                    <span>Player Name: PlayerOne</span>
-                    <span>Level: 75</span>
-                    <span>XP: 15000</span>
-                </div>
-                <!-- Add more player stats below -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Level</th>
+                            <th>XP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Player stats will be added here -->
+                        <tr>
+                            <td>PlayerOne</td>
+                            <td>75</td>
+                            <td>15000</td>
+                        </tr>
+                        <!-- Add more player stats below -->
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>
