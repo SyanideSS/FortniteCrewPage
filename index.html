@@ -57,96 +57,110 @@
                     <thead>
                         <tr>
                             <th>Player Name</th>
-                            <th>Score......</th>
+                            <th>Score</th>
                             <th>Score Per Min</th>
                             <th>Score Per Match</th>
-                            <th>Wins......</th>
+                            <th>Wins</th>
                             <th>Top 3</th>
                             <th>Top 5</th>
                             <th>Top 6</th>
                             <th>Top 10</th>
                             <th>Top 12</th>
                             <th>Top 25</th>
-                            <th>Kills......</th>
+                            <th>Kills</th>
+                            <th>Kills Per Min</th>
+                            <th>Kills Per Match</th>
+                            <th>Deaths</th>
+                            <th>K/D</th>
+                            <th>Matches</th>
+                            <th>Win Rate</th>
+                            <th>Minutes Played</th>
+                            <th>Players Outlived</th>
+                            <th>Last Modified</th>
                         </tr>
                     </thead>
-                    <tbody>
-                         <tr>
-                            <td>Gideon</td>
-                            <td>476 573</td>
-                            <td>29.31</td>
-                            <td>311.079</td>
-                            <td>202</td>
-                            <td>251</td>
-                            <td>79</td>
-                            <td>369</td>
-                            <td>94</td>
-                            <td>136</td>
-                            <td>169</td>
-                            <td>8 242</td>
-                        </tr>
+                    <tbody id="zero-build-tbody">
+                        <!-- Player stats will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="stats-section">
+            <h2>Rocket Racing Stats</h2>
+            <div class="player-stats" id="rocket-racing-stats">
+                <table>
+                    <thead>
                         <tr>
-                            <td>Chemands</td>
-                            <td>908 210</td>
-                            <td>25.809</td>
-                            <td>295.353</td>
-                            <td>226</td>
-                            <td>318</td>
-                            <td>379</td>
-                            <td>494</td>
-                            <td>165</td>
-                            <td>645</td>
-                            <td>270</td>
-                            <td>6 319</td>
-
+                            <th>Player Name</th>
+                            <th>Races</th>
+                            <th>Wins</th>
                         </tr>
+                    </thead>
+                    <tbody id="rocket-racing-tbody">
+                        <!-- Player stats will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="stats-section">
+            <h2>Level Stats</h2>
+            <div class="player-stats" id="level-stats">
+                <table>
+                    <thead>
                         <tr>
-                            <td>Shawn</td>
-                            <td>859 776</td>
-                            <td>26.307</td>
-                            <td>301.253</td>
-                            <td>230</td>
-                            <td>339</td>
-                            <td>370</td>
-                            <td>531</td>
-                            <td>86</td>
-                            <td>634</td>
-                            <td>144</td>
-                            <td>7 683</td>
+                            <th>Player Name</th>
+                            <th>Level</th>
+                            <th>XP</th>
                         </tr>
-                        <!-- <tr>
-                            <td>Lyna</td>
-                            <td>1 464 659</td>
-                            <td>23.425</td>
-                            <td>223.715</td>
-                            <td>226</td>
-                            <td>211</td>
-                            <td>175</td>
-                            <td>360</td>
-                            <td>869</td>
-                            <td>374</td>
-                            <td>1 598</td>
-                            <td>17 636</td>
-                        </tr> -->
-                        <tr>
-                            <td>HD</td>
-                            <td>345 015</td>
-                            <td>29.483</td>
-                            <td>305.864</td>
-                            <td>85</td>
-                            <td>127</td>
-                            <td>62</td>
-                            <td>183</td>
-                            <td>116</td>
-                            <td>96</td>
-                            <td>231</td>
-                            <td>3 373</td>
-                        </tr>
-                        
+                    </thead>
+                    <tbody id="level-tbody">
+                        <!-- Player stats will be dynamically added here -->
                     </tbody>
                 </table>
             </div>
         </section>
     </main>
+    <script>
+        function numberWithSpaces(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const zeroBuildTbody = document.getElementById('zero-build-tbody');
+
+                data.players.forEach(player => {
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td>${player.name}</td>
+                        <td>${numberWithSpaces(player.score)}</td>
+                        <td>${player.scorePerMin}</td>
+                        <td>${player.scorePerMatch}</td>
+                        <td>${player.wins}</td>
+                        <td>${player.top3}</td>
+                        <td>${player.top5}</td>
+                        <td>${player.top6}</td>
+                        <td>${player.top10}</td>
+                        <td>${player.top12}</td>
+                        <td>${numberWithSpaces(player.top25)}</td>
+                        <td>${numberWithSpaces(player.kills)}</td>
+                        <td>${player.killsPerMin}</td>
+                        <td>${player.killsPerMatch}</td>
+                        <td>${numberWithSpaces(player.deaths)}</td>
+                        <td>${player.kd}</td>
+                        <td>${numberWithSpaces(player.matches)}</td>
+                        <td>${player.winRate}%</td>
+                        <td>${numberWithSpaces(player.minutesPlayed)}</td>
+                        <td>${numberWithSpaces(player.playersOutlived)}</td>
+                        <td>${player.lastModified}</td>
+                    `;
+                    
+                    zeroBuildTbody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching player data:', error));
+    </script>
 </body>
 </html>
